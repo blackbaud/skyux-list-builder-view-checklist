@@ -3,10 +3,6 @@
     "_description": "Text for the link in a checklist to clear selections.",
     "message": "Clear all"
   },
-  "skyux_checklist_no_items": {
-    "_description": "Text in a checklist when no items are shown based on the current filter.",
-    "message": "No items found"
-  },
   "skyux_checklist_select_all": {
     "_description": "Text for the link in a checklist to select all items.",
     "message": "Select all"

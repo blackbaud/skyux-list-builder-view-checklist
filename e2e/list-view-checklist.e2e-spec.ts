@@ -9,7 +9,6 @@ import {
 } from '@skyux-sdk/e2e';
 
 describe('list-view-checklist component', () => {
-
   function validateScreenshot(done: DoneFn) {
     expect('#screenshot-list-view-checklist').toMatchBaselineScreenshot(done);
   }
@@ -18,26 +17,42 @@ describe('list-view-checklist component', () => {
     SkyHostBrowser.get('visual/list-view-checklist');
   });
 
-  it('should display checklist view', (done) => {
-    validateScreenshot(done);
+  describe('(lg screens)', () => {
+    beforeEach(() => {
+      SkyHostBrowser.setWindowBreakpoint('lg');
+    });
+
+    it('should display checklist view', (done) => {
+      validateScreenshot(done);
+    });
+
+    it('should display checklist view with checked', (done) => {
+      element(by.css('.sky-list-view-checklist sky-checkbox')).click();
+
+      validateScreenshot(done);
+    });
+
+    it('should display only checked items when "only show selected items" is checked', (done) => {
+      element(by.css('.sky-list-view-checklist sky-checkbox')).click();
+      element(by.css('#sky-list-view-checklist-show-selected')).click();
+
+      validateScreenshot(done);
+    });
+
+    it('should display checklist view single select', (done) => {
+      element(by.css('.sky-btn.sky-btn-primary')).click();
+
+      validateScreenshot(done);
+    });
   });
 
-  it('should display checklist view with checked', (done) => {
-    element(by.css('.sky-list-view-checklist sky-checkbox')).click();
+  describe('(xs screens)', () => {
+    beforeEach(() => {
+      SkyHostBrowser.setWindowBreakpoint('xs');
+    });
 
-    validateScreenshot(done);
-  });
-
-  it('should display only checked items when "only show selected items" is checked', (done) => {
-    element(by.css('.sky-list-view-checklist sky-checkbox')).click();
-    element(by.css('#sky-list-view-checklist-show-selected')).click();
-
-    validateScreenshot(done);
-  });
-
-  it('should display checklist view single select', (done) => {
-    element(by.css('.sky-btn.sky-btn-primary')).click();
-
-    validateScreenshot(done);
+    it('should display checklist view', (done) => {
+      validateScreenshot(done);
+    });
   });
 });
