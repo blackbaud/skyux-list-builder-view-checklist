@@ -1,6 +1,6 @@
 # 3.0.0-rc.4 (2018-11-13)
 
-- Fixed checkilst to no longer truncate items when pagination is not enabled. [#9](https://github.com/blackbaud/skyux-list-builder-view-checklist/pull/9)
+- Fixed checklist component to list all items when pagination is not enabled. [#9](https://github.com/blackbaud/skyux-list-builder-view-checklist/pull/9)
 
 # 3.0.0-rc.3 (2018-11-08)
 
