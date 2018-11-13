@@ -5,9 +5,11 @@ import {
   fakeAsync,
   tick
 } from '@angular/core/testing';
+
 import {
   DebugElement
 } from '@angular/core';
+
 import {
   By
 } from '@angular/platform-browser';
@@ -15,6 +17,7 @@ import {
 import {
   Observable
 } from 'rxjs/Observable';
+
 import {
   BehaviorSubject
 } from 'rxjs/BehaviorSubject';
@@ -25,6 +28,7 @@ import {
   SkyListToolbarModule,
   SkyListPagingModule
 } from '@skyux/list-builder';
+
 import {
   ListItemModel,
   ListItemsLoadAction,
@@ -37,26 +41,33 @@ import {
 import {
   ListViewChecklistTestComponent
 } from './fixtures/list-view-checklist.component.fixture';
+
 import {
   ListViewChecklistEmptyTestComponent
 } from './fixtures/list-view-checklist-empty.component.fixture';
+
 import {
   ListViewChecklistToolbarTestComponent
 } from './fixtures/list-view-checklist-toolbar.component.fixture';
+
 import {
   SkyListViewChecklistModule
 } from './';
+
 import {
   ListViewChecklistItemsLoadAction
 } from './state/items/actions';
+
 import {
   ListViewChecklistItemModel
 } from './state/items/item.model';
+
 import {
   ChecklistState,
   ChecklistStateDispatcher,
   ChecklistStateModel
 } from './state';
+
 import {
   ListViewChecklistPaginationTestComponent
 } from './fixtures/list-view-checklist-pagination.component.fixture';
