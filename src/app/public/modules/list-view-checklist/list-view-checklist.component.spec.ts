@@ -5,9 +5,26 @@ import {
   fakeAsync,
   tick
 } from '@angular/core/testing';
-import { DebugElement } from '@angular/core';
-import { By } from '@angular/platform-browser';
+import {
+  DebugElement
+} from '@angular/core';
+import {
+  By
+} from '@angular/platform-browser';
 
+import {
+  Observable
+} from 'rxjs/Observable';
+import {
+  BehaviorSubject
+} from 'rxjs/BehaviorSubject';
+
+import {
+  SkyListModule,
+  SkyListComponent,
+  SkyListToolbarModule,
+  SkyListPagingModule
+} from '@skyux/list-builder';
 import {
   ListItemModel,
   ListItemsLoadAction,
@@ -26,21 +43,20 @@ import {
 import {
   ListViewChecklistToolbarTestComponent
 } from './fixtures/list-view-checklist-toolbar.component.fixture';
-import { SkyListViewChecklistModule } from './';
-import { ListViewChecklistItemsLoadAction } from './state/items/actions';
-import { ListViewChecklistItemModel } from './state/items/item.model';
-import { ChecklistState, ChecklistStateDispatcher, ChecklistStateModel } from './state';
-
 import {
-  SkyListModule,
-  SkyListComponent,
-  SkyListToolbarModule,
-  SkyListPagingModule
-} from '@skyux/list-builder';
-
-import { Observable } from 'rxjs/Observable';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-
+  SkyListViewChecklistModule
+} from './';
+import {
+  ListViewChecklistItemsLoadAction
+} from './state/items/actions';
+import {
+  ListViewChecklistItemModel
+} from './state/items/item.model';
+import {
+  ChecklistState,
+  ChecklistStateDispatcher,
+  ChecklistStateModel
+} from './state';
 import {
   ListViewChecklistPaginationTestComponent
 } from './fixtures/list-view-checklist-pagination.component.fixture';
