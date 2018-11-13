@@ -14,7 +14,6 @@ export class ListViewChecklistPaginationTestComponent {
   public selectedItems: Map<string, boolean>;
   public selectMode: string = 'multiple';
   public showOnlySelected: boolean = false;
-  public currentPageNumber: number = 1;
 
   public items: Observable<Array<any>> = Observable.of([
     { id: '1', column1: 101, column2: 'Apple', column3: 'Anne eats apples'},
