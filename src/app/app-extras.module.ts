@@ -4,7 +4,8 @@ import {
 
 import {
   SkyListModule,
-  SkyListToolbarModule
+  SkyListToolbarModule,
+  SkyListPagingModule
 } from '@skyux/list-builder';
 
 import {
@@ -15,12 +16,14 @@ import {
   imports: [
     SkyListModule,
     SkyListToolbarModule,
-    SkyListViewChecklistModule
+    SkyListViewChecklistModule,
+    SkyListPagingModule
   ],
   exports: [
     SkyListModule,
     SkyListToolbarModule,
-    SkyListViewChecklistModule
+    SkyListViewChecklistModule,
+    SkyListPagingModule
   ],
   providers: [],
   entryComponents: []

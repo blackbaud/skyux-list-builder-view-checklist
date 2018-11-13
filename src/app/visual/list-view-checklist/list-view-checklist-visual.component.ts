@@ -17,7 +17,11 @@ export class ListViewChecklistVisualComponent {
     { id: '4', column1: 404, column2: 'Grape', column3: 'George eats grapes' },
     { id: '5', column1: 505, column2: 'Banana', column3: 'Becky eats bananas' },
     { id: '6', column1: 606, column2: 'Lemon', column3: 'Larry eats lemons' },
-    { id: '7', column1: 707, column2: 'Strawberry', column3: 'Sally eats strawberries' }
+    { id: '7', column1: 707, column2: 'Strawberry', column3: 'Sally eats strawberries' },
+    { id: '8', column1: 808, column2: 'xxx', column3: 'xxx' },
+    { id: '9', column1: 909, column2: 'xxx', column3: 'xxx' },
+    { id: '10', column1: 1010, column2: 'xxx', column3: 'xxx' },
+    { id: '11', column1: 1111, column2: 'xxx', column3: 'xxx' }
   ]);
 
   public toggleSelectMode() {
