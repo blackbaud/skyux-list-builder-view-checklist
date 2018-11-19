@@ -55,7 +55,7 @@ import {
 
 import {
   getData
-} from '@skyux/list-builder/modules/list/helpers';
+} from '@skyux/list-builder-common/helpers';
 
 import { SkyCheckboxChange } from '@skyux/forms';
 
