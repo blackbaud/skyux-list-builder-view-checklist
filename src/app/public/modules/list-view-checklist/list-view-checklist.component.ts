@@ -27,11 +27,14 @@ import {
 } from 'microedge-rxstate/dist';
 
 import {
+  ListItemModel
+} from '@skyux/list-builder-common/state/items/item.model';
+
+import {
   ListState,
   ListStateDispatcher,
   ListSelectedModel,
   ListFilterModel,
-  ListItemModel,
   ListPagingSetPageNumberAction,
   ListSelectedSetItemSelectedAction,
   ListSelectedSetItemsSelectedAction,
