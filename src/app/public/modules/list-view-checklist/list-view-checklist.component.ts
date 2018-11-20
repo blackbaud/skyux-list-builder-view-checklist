@@ -28,7 +28,7 @@ import {
 
 import {
   ListItemModel
-} from '@skyux/list-builder-common/state/items/item.model';
+} from '@skyux/list-builder-common';
 
 import {
   ListState,
@@ -58,7 +58,7 @@ import {
 
 import {
   getData
-} from '@skyux/list-builder-common/helpers';
+} from '@skyux/list-builder-common';
 
 import { SkyCheckboxChange } from '@skyux/forms';
 
