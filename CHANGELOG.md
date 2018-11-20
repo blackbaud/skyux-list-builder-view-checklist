@@ -1,3 +1,8 @@
+# 3.0.0-rc.6 (2018-11-20)
+
+ - Added support for `@skyux/list-builder-common`. [#14](https://github.com/blackbaud/skyux-list-builder-view-grids/pull/14)
+ - Updated peer dependencies to always take greater or equal versions. [#12](https://github.com/blackbaud/skyux-list-builder-view-grids/pull/12)
+
 # 3.0.0-rc.5 (2018-11-19)
 
 - Updated peer dependencies to support Angular versions greater than `4.3.6`. [#12](https://github.com/blackbaud/skyux-list-builder-view-checklist/pull/12)
