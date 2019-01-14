@@ -26,17 +26,16 @@
     "@angular/common": ">=4.3.6",
     "@angular/core": ">=4.3.6",
     "@angular/forms": ">=4.3.6",
-    "@skyux/forms": "^3.0.0-rc.0",
-    "@skyux/i18n": "^3.3.0",
-    "@skyux/list-builder": "^3.0.0-rc.0",
-    "@skyux/list-builder-common": "^3.0.0-rc.1",
+    "@skyux/i18n": "^3.5.0",
+    "@skyux/forms": "^3.0.0",
+    "@skyux/list-builder": "^3.0.0",
+    "@skyux/list-builder-common": "^3.0.0",
     "microedge-rxstate": "^2.0.2"
   },
   "dependencies": {},
   "devDependencies": {
-    "@blackbaud/skyux": "2.30.0",
-    "@blackbaud/skyux-builder": "1.29.0",
-    "@skyux-sdk/builder-plugin-skyux": "1.0.0-rc.5",
-    "@skyux/list-builder-common": "3.0.0-rc.1"
+    "@blackbaud/skyux": "2.38.0",
+    "@blackbaud/skyux-builder": "1.30.0",
+    "@skyux-sdk/builder-plugin-skyux": "1.0.0-rc.5"
   }
 }
