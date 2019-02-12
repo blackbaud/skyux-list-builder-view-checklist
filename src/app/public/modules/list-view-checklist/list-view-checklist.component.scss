@@ -11,6 +11,10 @@
       max-width: 22px;
     }
   }
+
+  ::ng-deep .sky-switch {
+    white-space: nowrap;
+  }
 }
 
 #sky-list-view-checklist-show-selected {
