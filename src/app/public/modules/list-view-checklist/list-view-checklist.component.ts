@@ -1,14 +1,12 @@
 import {
-  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   forwardRef,
   Input,
   OnDestroy,
-  TemplateRef,
-  ViewChild,
   SimpleChanges,
-  OnChanges
+  OnChanges,
+  OnInit
 } from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
@@ -38,7 +36,6 @@ import {
   ListPagingSetPageNumberAction,
   ListSelectedSetItemSelectedAction,
   ListSelectedSetItemsSelectedAction,
-  ListToolbarItemModel,
   ListToolbarSetTypeAction
 } from '@skyux/list-builder/modules/list/state';
 
@@ -60,8 +57,6 @@ import {
   getData
 } from '@skyux/list-builder-common';
 
-import { SkyCheckboxChange } from '@skyux/forms';
-
 @Component({
   selector: 'sky-list-view-checklist',
   templateUrl: './list-view-checklist.component.html',
@@ -76,7 +71,7 @@ import { SkyCheckboxChange } from '@skyux/forms';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SkyListViewChecklistComponent extends ListViewComponent implements AfterViewInit, OnDestroy, OnChanges {
+export class SkyListViewChecklistComponent extends ListViewComponent implements OnInit, OnDestroy, OnChanges {
   @Input()
   set name(value: string) {
     this.viewName = value;
@@ -96,7 +91,6 @@ export class SkyListViewChecklistComponent extends ListViewComponent implements 
   @Input()
   public set selectMode(value: string) {
     this._selectMode = value;
-    this.updateActions();
   }
 
   public get selectMode(): string {
@@ -105,17 +99,6 @@ export class SkyListViewChecklistComponent extends ListViewComponent implements 
 
   @Input()
   public showOnlySelected: boolean = false;
-
-  @ViewChild('selectAllTemplate')
-  private selectAllTemplate: TemplateRef<any>;
-
-  @ViewChild('clearSelectionsTemplate')
-  private clearSelectionsTemplate: TemplateRef<any>;
-
-  @ViewChild('showSelectedTemplate')
-  private showSelectedTemplate: TemplateRef<any>;
-
-  private hasSelectToolbarItems = false;
 
   private ngUnsubscribe = new Subject();
 
@@ -161,16 +144,15 @@ export class SkyListViewChecklistComponent extends ListViewComponent implements 
       });
   }
 
+  public ngOnInit() {
+    this.dispatcher.toolbarShowMultiselectToolbar(true);
+  }
+
   public ngOnChanges(changes: SimpleChanges) {
     if (changes['showOnlySelected'] &&
       changes['showOnlySelected'].currentValue !== changes['showOnlySelected'].previousValue) {
       this.reapplyFilter(changes['showOnlySelected'].currentValue);
     }
-  }
-
-  public changeVisibleItems(change: SkyCheckboxChange) {
-    this.showOnlySelected = change.checked;
-    this.reapplyFilter(change.checked);
   }
 
   public onViewActive() {
@@ -190,10 +172,6 @@ export class SkyListViewChecklistComponent extends ListViewComponent implements 
     this.dispatcher.searchSetFieldSelectors(fieldSelectors);
 
     this.dispatcher.next(new ListToolbarSetTypeAction('search'));
-  }
-
-  public ngAfterViewInit() {
-    this.updateActions();
   }
 
   public ngOnDestroy() {
@@ -250,82 +228,6 @@ export class SkyListViewChecklistComponent extends ListViewComponent implements 
 
   public singleSelectRowClick(item: ListItemModel) {
     this.dispatcher.next(new ListSelectedSetItemsSelectedAction([item.id], true, true));
-  }
-
-  public clearSelections() {
-    this.state.map(state => state.items.items)
-      .take(1)
-      .subscribe(items => {
-        this.dispatcher
-          .next(new ListSelectedSetItemsSelectedAction(items.map(item => item.id), false, false));
-
-        if (this.showOnlySelected) {
-          this.reapplyFilter(this.showOnlySelected);
-        }
-      });
-  }
-
-  public selectAll() {
-    this.state.map(state => state.items.items)
-      .take(1)
-      .subscribe(items => {
-        this.dispatcher
-          .next(new ListSelectedSetItemsSelectedAction(items.map(item => item.id), true, false));
-        if (this.showOnlySelected) {
-          this.reapplyFilter(this.showOnlySelected);
-        }
-      });
-  }
-
-  private updateActions() {
-    const selectAllId = 'select-all';
-    const clearAllId = 'clear-all';
-    const showSelectedId = 'show-selected';
-
-    switch (this.selectMode) {
-      case 'single':
-        this.dispatcher.toolbarRemoveItems([selectAllId, clearAllId, showSelectedId]);
-        this.showOnlySelected = false;
-        this.reapplyFilter(false);
-        this.hasSelectToolbarItems = false;
-        break;
-      default:
-        if (!this.hasSelectToolbarItems) {
-          this.dispatcher.toolbarAddItems([
-            new ListToolbarItemModel(
-              {
-                id: 'select-all',
-                template: this.selectAllTemplate,
-                location: 'right',
-                index: 500,
-                view: this.id
-              }
-            ),
-            new ListToolbarItemModel(
-              {
-                id: 'clear-all',
-                template: this.clearSelectionsTemplate,
-                location: 'right',
-                index: 500,
-                view: this.id
-              }
-            ),
-            new ListToolbarItemModel(
-              {
-                id: showSelectedId,
-                template: this.showSelectedTemplate,
-                location: 'right',
-                index: 500,
-                view: this.id
-              }
-            )
-          ]);
-
-          this.reapplyFilter(this.showOnlySelected);
-          this.hasSelectToolbarItems = true;
-        }
-        break;
-    }
   }
 
   private disableToolbar(isDisabled: boolean): void {
