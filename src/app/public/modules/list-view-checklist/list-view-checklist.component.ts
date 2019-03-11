@@ -91,6 +91,15 @@ export class SkyListViewChecklistComponent extends ListViewComponent implements 
   @Input()
   public set selectMode(value: string) {
     this._selectMode = value;
+
+    if (this._selectMode === 'single') {
+      this.showOnlySelected = false;
+      this.dispatcher.toolbarShowMultiselectToolbar(false);
+    } else {
+      this.dispatcher.toolbarShowMultiselectToolbar(true);
+    }
+
+    this.reapplyFilter(this.showOnlySelected);
   }
 
   public get selectMode(): string {
@@ -98,13 +107,21 @@ export class SkyListViewChecklistComponent extends ListViewComponent implements 
   }
 
   @Input()
-  public showOnlySelected: boolean = false;
+  public set showOnlySelected(value: boolean) {
+    this._showOnlySelected = value;
+  }
+
+  public get showOnlySelected(): boolean {
+    return this._showOnlySelected;
+  }
 
   private ngUnsubscribe = new Subject();
 
   private _selectMode = 'multiple';
 
   private _selectedIdMap: Map<string, boolean> = new Map<string, boolean>();
+
+  private _showOnlySelected: boolean = false;
 
   constructor(
     state: ListState,
@@ -146,6 +163,18 @@ export class SkyListViewChecklistComponent extends ListViewComponent implements 
 
   public ngOnInit() {
     this.dispatcher.toolbarShowMultiselectToolbar(true);
+
+    // If 'show-selected' filter is programatically set from a child component (e.g. checkilst),
+    // make sure the checked state of the 'show-selected' checkbox stays in sync.
+    this.state.map(t => t.filters)
+      .takeUntil(this.ngUnsubscribe)
+      .distinctUntilChanged(this.showSelectedValuesEqual)
+      .subscribe((filters: ListFilterModel[]) => {
+        const showSelectedFilter = filters.find((filter: ListFilterModel) => filter.name === 'show-selected');
+        if (showSelectedFilter) {
+          this._showOnlySelected = (showSelectedFilter.value === 'true');
+        }
+    });
   }
 
   public ngOnChanges(changes: SimpleChanges) {
@@ -269,5 +298,14 @@ export class SkyListViewChecklistComponent extends ListViewComponent implements 
         });
       }
     this.disableToolbar(isSelected);
+  }
+
+  private showSelectedValuesEqual(prev: ListFilterModel[], next: ListFilterModel[]) {
+    const prevShowSelectedFilter = prev.find(filter => filter.name === 'show-selected');
+    const nextShowSelectedFilter = next.find(filter => filter.name === 'show-selected');
+    if (prevShowSelectedFilter && nextShowSelectedFilter) {
+      return prevShowSelectedFilter.value === nextShowSelectedFilter.value;
+    }
+    return true;
   }
 }

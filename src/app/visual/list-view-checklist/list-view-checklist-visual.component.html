@@ -5,6 +5,13 @@
   (click)="toggleSelectMode()">
   Switch select mode
 </button>
+<button
+  type="button"
+  class="sky-btn sky-btn-primary"
+  style="margin-bottom: 10px;"
+  (click)="showOnlySelected = !showOnlySelected">
+  Toggle show only selected
+</button>
 
 <div id="screenshot-list-view-checklist" style="background-color: white">
   <sky-list [data]="data">
@@ -13,7 +20,11 @@
       label="column1"
       description="column2"
       name="checklist"
-      [selectMode]="selectMode">
+      [selectMode]="selectMode"
+      [showOnlySelected]="showOnlySelected"
+    >
     </sky-list-view-checklist>
   </sky-list>
 </div>
+
+<p>Show only selected: {{ showOnlySelected }}</p>
