@@ -164,8 +164,8 @@ export class SkyListViewChecklistComponent extends ListViewComponent implements 
   public ngOnInit() {
     this.dispatcher.toolbarShowMultiselectToolbar(true);
 
-    // If 'show-selected' filter is programatically set from a child component (e.g. checkilst),
-    // make sure the checked state of the 'show-selected' checkbox stays in sync.
+    // If 'show-selected' filter is changed from multiselect toolbar (list-builder)
+    // make sure the private variable _showOnlySelected stays in sync.
     this.state.map(t => t.filters)
       .takeUntil(this.ngUnsubscribe)
       .distinctUntilChanged(this.showSelectedValuesEqual)
