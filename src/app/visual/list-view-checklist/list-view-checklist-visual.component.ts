@@ -10,8 +10,6 @@ export class ListViewChecklistVisualComponent {
 
   public selectMode: string = 'multiple';
 
-  public showOnlySelected: boolean = false;
-
   public data: Observable<Array<any>> = Observable.of([
     { id: '1', column1: 101, column2: 'Apple', column3: 'Anne eats apples'},
     { id: '2', column1: 202, column2: 'Banana', column3: 'Ben eats bananas' },
