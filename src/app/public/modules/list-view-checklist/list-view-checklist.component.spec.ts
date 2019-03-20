@@ -603,7 +603,7 @@ describe('List View Checklist Component', () => {
       });
     }));
 
-    fit('should select all and clear all properly when not all items are displayed', fakeAsync(() => {
+    it('should select all and clear all properly when not all items are displayed', fakeAsync(() => {
       tick();
       fixture.detectChanges();
       tick();

@@ -40,6 +40,14 @@ import {
 } from '@skyux/list-builder/modules/list/state';
 
 import {
+  getData
+} from '@skyux/list-builder-common';
+
+import {
+  SkyCheckboxChange
+} from '@skyux/forms';
+
+import {
   ChecklistState,
   ChecklistStateDispatcher,
   ChecklistStateModel
@@ -52,10 +60,6 @@ import {
 import {
   ListViewChecklistItemModel
 } from './state/items/item.model';
-
-import {
-  getData
-} from '@skyux/list-builder-common';
 
 @Component({
   selector: 'sky-list-view-checklist',
@@ -184,6 +188,51 @@ export class SkyListViewChecklistComponent extends ListViewComponent implements 
     }
   }
 
+  /**
+   * @deprecated since version 3.2.0
+   * Multiselect toolbar will automatically show if select mode is set to 'multiple'.
+   * These methods are no longer needed, as that functionality is part of list-builder.
+   */
+  public changeVisibleItems(change: SkyCheckboxChange) {
+    this.showOnlySelected = change.checked;
+    this.reapplyFilter(change.checked);
+  }
+
+  /**
+   * @deprecated since version 3.2.0
+   * Multiselect toolbar will automatically show if select mode is set to 'multiple'.
+   * These methods are no longer needed, as that functionality is part of list-builder.
+   */
+  public clearSelections() {
+    this.state.map(state => state.items.items)
+    .take(1)
+    .subscribe(items => {
+      this.dispatcher
+        .next(new ListSelectedSetItemsSelectedAction(items.map(item => item.id), false, false));
+
+       if (this.showOnlySelected) {
+        this.reapplyFilter(this.showOnlySelected);
+      }
+    });
+  }
+
+  /**
+   * @deprecated since version 3.2.0
+   * Multiselect toolbar will automatically show if select mode is set to 'multiple'.
+   * These methods are no longer needed, as that functionality is part of list-builder.
+   */
+  public selectAll() {
+    this.state.map(state => state.items.items)
+    .take(1)
+    .subscribe(items => {
+      this.dispatcher
+        .next(new ListSelectedSetItemsSelectedAction(items.map(item => item.id), true, false));
+      if (this.showOnlySelected) {
+        this.reapplyFilter(this.showOnlySelected);
+      }
+    });
+  }
+
   public onViewActive() {
     if (this.search !== undefined) {
       this.dispatcher.searchSetFunctions([this.search]);
@@ -303,9 +352,11 @@ export class SkyListViewChecklistComponent extends ListViewComponent implements 
   private showSelectedValuesEqual(prev: ListFilterModel[], next: ListFilterModel[]) {
     const prevShowSelectedFilter = prev.find(filter => filter.name === 'show-selected');
     const nextShowSelectedFilter = next.find(filter => filter.name === 'show-selected');
+
     if (prevShowSelectedFilter && nextShowSelectedFilter) {
       return prevShowSelectedFilter.value === nextShowSelectedFilter.value;
     }
+
     return true;
   }
 }
