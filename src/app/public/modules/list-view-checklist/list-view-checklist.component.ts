@@ -210,6 +210,7 @@ export class SkyListViewChecklistComponent extends ListViewComponent implements 
       this.dispatcher
         .next(new ListSelectedSetItemsSelectedAction(items.map(item => item.id), false, false));
 
+        /* istanbul ignore else */
        if (this.showOnlySelected) {
         this.reapplyFilter(this.showOnlySelected);
       }
@@ -227,6 +228,8 @@ export class SkyListViewChecklistComponent extends ListViewComponent implements 
     .subscribe(items => {
       this.dispatcher
         .next(new ListSelectedSetItemsSelectedAction(items.map(item => item.id), true, false));
+
+      /* istanbul ignore else */
       if (this.showOnlySelected) {
         this.reapplyFilter(this.showOnlySelected);
       }

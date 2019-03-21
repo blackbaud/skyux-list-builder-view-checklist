@@ -549,7 +549,7 @@ describe('List View Checklist Component', () => {
       expect(checkboxes.length).toBeGreaterThan(visibleCheckboxesLength);
     }));
 
-    it('should handle items properly if \'showOnlySelected\' property is set & user click clear all & select all link', fakeAsync(() => {
+    it('should handle items properly if \'showOnlySelected\' property is set & user clicks clear all & select all', fakeAsync(() => {
       tick();
       fixture.detectChanges();
 
@@ -668,6 +668,32 @@ describe('List View Checklist Component', () => {
       });
       tick();
       fixture.detectChanges();
+    }));
+
+    it('should handle items properly if changeVisibleItems() is set to true & selectAll() / clearAll() methods are hit (DEPRECATED)', fakeAsync(() => {
+      tick();
+      fixture.detectChanges();
+
+      component.changeVisibleItems(true);
+      tick();
+      fixture.detectChanges();
+
+      // check number of checkboxes visible when showOnlySection is selected.
+      let checkboxesLength = document.querySelectorAll('.sky-list-view-checklist sky-checkbox input').length;
+
+      component.selectAll();
+      tick();
+      fixture.detectChanges();
+
+      let updatedLength = document.querySelectorAll('.sky-list-view-checklist sky-checkbox input').length;
+      expect(checkboxesLength).toEqual(updatedLength);
+
+      component.clearAll();
+      tick();
+      fixture.detectChanges();
+
+      updatedLength = document.querySelectorAll('.sky-list-view-checklist sky-checkbox input').length;
+      expect(updatedLength).toEqual(0);
     }));
 
   });
