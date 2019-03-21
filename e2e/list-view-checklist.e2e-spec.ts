@@ -9,9 +9,6 @@ import {
 } from '@skyux-sdk/e2e';
 
 describe('list-view-checklist component', () => {
-  function validateScreenshot(done: DoneFn) {
-    expect('#screenshot-list-view-checklist').toMatchBaselineScreenshot(done);
-  }
 
   beforeEach(() => {
     SkyHostBrowser.get('visual/list-view-checklist');
@@ -23,26 +20,34 @@ describe('list-view-checklist component', () => {
     });
 
     it('should display checklist view', (done) => {
-      validateScreenshot(done);
+      expect('#screenshot-list-view-checklist').toMatchBaselineScreenshot(done, {
+        screenshotName: 'list-view-checklist-lg'
+      });
     });
 
     it('should display checklist view with checked', (done) => {
       element(by.css('.sky-list-view-checklist sky-checkbox')).click();
 
-      validateScreenshot(done);
+      expect('#screenshot-list-view-checklist').toMatchBaselineScreenshot(done, {
+        screenshotName: 'list-view-checklist-lg-checked'
+      });
     });
 
     it('should display only checked items when "only show selected items" is checked', (done) => {
       element(by.css('.sky-list-view-checklist sky-checkbox')).click();
-      element(by.css('#sky-list-view-checklist-show-selected')).click();
+      element(by.css('.sky-list-multiselect-toolbar sky-checkbox')).click();
 
-      validateScreenshot(done);
+      expect('#screenshot-list-view-checklist').toMatchBaselineScreenshot(done, {
+        screenshotName: 'list-view-checklist-lg-show-only-selected'
+      });
     });
 
     it('should display checklist view single select', (done) => {
       element(by.css('.sky-btn.sky-btn-primary')).click();
 
-      validateScreenshot(done);
+      expect('#screenshot-list-view-checklist').toMatchBaselineScreenshot(done, {
+        screenshotName: 'list-view-checklist-lg-single-select'
+      });
     });
   });
 
@@ -52,7 +57,9 @@ describe('list-view-checklist component', () => {
     });
 
     it('should display checklist view', (done) => {
-      validateScreenshot(done);
+      expect('#screenshot-list-view-checklist').toMatchBaselineScreenshot(done, {
+        screenshotName: 'list-view-checklist-xs'
+      });
     });
   });
 });
