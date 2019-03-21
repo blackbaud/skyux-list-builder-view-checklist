@@ -33,7 +33,6 @@ import {
   ListStateDispatcher,
   ListSelectedModel,
   ListFilterModel,
-  ListPagingSetPageNumberAction,
   ListSelectedSetItemSelectedAction,
   ListSelectedSetItemsSelectedAction,
   ListToolbarSetTypeAction
@@ -195,7 +194,6 @@ export class SkyListViewChecklistComponent extends ListViewComponent implements 
    */
   public changeVisibleItems(change: SkyCheckboxChange) {
     this.showOnlySelected = change.checked;
-    this.reapplyFilter(change.checked);
   }
 
   /**
@@ -209,12 +207,12 @@ export class SkyListViewChecklistComponent extends ListViewComponent implements 
     .subscribe(items => {
       this.dispatcher
         .next(new ListSelectedSetItemsSelectedAction(items.map(item => item.id), false, false));
-
-        /* istanbul ignore else */
-       if (this.showOnlySelected) {
-        this.reapplyFilter(this.showOnlySelected);
-      }
     });
+
+    /* istanbul ignore else */
+    if (this.showOnlySelected) {
+      this.reapplyFilter(this.showOnlySelected);
+    }
   }
 
   /**
@@ -302,17 +300,10 @@ export class SkyListViewChecklistComponent extends ListViewComponent implements 
 
   public setItemSelection(item: ListItemModel, event: any) {
     this.dispatcher.next(new ListSelectedSetItemSelectedAction(item.id, event.checked));
-    if (this.showOnlySelected) {
-      this.reapplyFilter(this.showOnlySelected);
-    }
   }
 
   public singleSelectRowClick(item: ListItemModel) {
     this.dispatcher.next(new ListSelectedSetItemsSelectedAction([item.id], true, true));
-  }
-
-  private disableToolbar(isDisabled: boolean): void {
-    this.dispatcher.toolbarSetDisabled(isDisabled);
   }
 
   private getShowSelectedFilter(isSelected: boolean) {
@@ -338,18 +329,6 @@ export class SkyListViewChecklistComponent extends ListViewComponent implements 
         filters.push(self.getShowSelectedFilter(isSelected));
         this.dispatcher.filtersUpdate(filters);
       });
-
-      // If "show selected" is checked and paging is enabled, go to page one.
-      if (isSelected) {
-        this.state.take(1).subscribe((currentState) => {
-          if (currentState.paging.pageNumber && currentState.paging.pageNumber !== 1) {
-            this.dispatcher.next(
-              new ListPagingSetPageNumberAction(Number(1))
-            );
-          }
-        });
-      }
-    this.disableToolbar(isSelected);
   }
 
   private showSelectedValuesEqual(prev: ListFilterModel[], next: ListFilterModel[]) {
