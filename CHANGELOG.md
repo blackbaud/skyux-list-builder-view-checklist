@@ -1,3 +1,7 @@
+# 3.1.1 (2019-03-22)
+
+- Updated multiselect toolbar to be consistent with current UX guidelines. [#25](https://github.com/blackbaud/skyux-list-builder-view-checklist/pull/25)
+
 # 3.1.0 (2019-03-19)
 
 - Added support for `microedge-rxstate@>=2.0.2`. [#26](https://github.com/blackbaud/skyux-list-builder-view-checklist/pull/26)
