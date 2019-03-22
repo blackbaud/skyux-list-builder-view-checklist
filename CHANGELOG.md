@@ -1,6 +1,6 @@
 # 3.1.1 (2019-03-22)
 
-- Updated multiselect toolbar to be consistent with current UX guidelines. [#25](https://github.com/blackbaud/skyux-list-builder-view-checklist/pull/25)
+- Fixed toolbar to follow UX guidelines. [#25](https://github.com/blackbaud/skyux-list-builder-view-checklist/pull/25)
 
 # 3.1.0 (2019-03-19)
 
