@@ -93,7 +93,7 @@ export class SkyListViewChecklistComponent extends ListViewComponent implements 
 
   @Input()
   public set selectMode(value: string) {
-    this._selectMode = value || 'multiple';
+    this._selectMode = value;
 
     if (this._selectMode === 'multiple') {
       this.dispatcher.toolbarShowMultiselectToolbar(true);
@@ -106,7 +106,7 @@ export class SkyListViewChecklistComponent extends ListViewComponent implements 
   }
 
   public get selectMode(): string {
-    return this._selectMode;
+    return this._selectMode || 'multiple';
   }
 
   @Input()
