@@ -1,6 +1,7 @@
 # 3.1.2 (2019-04-12)
 
 - Fixed toolbar to no longer show multiselect controls when in single select mode. [#30](https://github.com/blackbaud/skyux-list-builder-view-checklist/pull/30)
+- Fixed visual styles for checkbox labels. [#21](https://github.com/blackbaud/skyux-list-builder-view-checklist/pull/21)
 
 # 3.1.1 (2019-03-22)
 
