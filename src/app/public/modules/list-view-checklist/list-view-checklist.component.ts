@@ -95,7 +95,7 @@ export class SkyListViewChecklistComponent extends ListViewComponent implements 
   public set selectMode(value: string) {
     this._selectMode = value;
 
-    if (this._selectMode === 'multiple') {
+    if (this.selectMode === 'multiple') {
       this.dispatcher.toolbarShowMultiselectToolbar(true);
     } else {
       this.showOnlySelected = false;
@@ -165,7 +165,7 @@ export class SkyListViewChecklistComponent extends ListViewComponent implements 
   }
 
   public ngOnInit() {
-    if (this._selectMode === 'multiple') {
+    if (this.selectMode === 'multiple') {
       this.dispatcher.toolbarShowMultiselectToolbar(true);
     }
 
