@@ -1,6 +1,6 @@
 {
   "name": "@skyux/list-builder-view-checklist",
-  "version": "3.0.0",
+  "version": "3.1.1",
   "description": "SKY UX List Builder View Checklist",
   "main": "bundles/bundle.umd.js",
   "module": "index.ts",
@@ -28,14 +28,14 @@
     "@angular/forms": ">=4.3.6",
     "@skyux/forms": "^3.0.0",
     "@skyux/i18n": "^3.5.0",
-    "@skyux/list-builder": "^3.0.0",
+    "@skyux/list-builder": "^3.2.1",
     "@skyux/list-builder-common": "^3.0.0",
-    "microedge-rxstate": "^2.0.2"
+    "microedge-rxstate": ">=2.0.2"
   },
   "dependencies": {},
   "devDependencies": {
-    "@blackbaud/skyux": "2.38.0",
-    "@blackbaud/skyux-builder": "1.30.0",
-    "@skyux-sdk/builder-plugin-skyux": "1.0.0-rc.5"
+    "@blackbaud/skyux": "2.45.0",
+    "@blackbaud/skyux-builder": "1.33.0",
+    "@skyux-sdk/builder-plugin-skyux": "1.0.0-rc.6"
   }
 }
