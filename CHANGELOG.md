@@ -1,3 +1,7 @@
+# 3.1.2 (2019-04-12)
+
+- Fixed toolbar to no longer show multiselect controls when in single select mode. [#30](https://github.com/blackbaud/skyux-list-builder-view-checklist/pull/30)
+
 # 3.1.1 (2019-03-22)
 
 - Fixed toolbar to follow UX guidelines. [#25](https://github.com/blackbaud/skyux-list-builder-view-checklist/pull/25)
