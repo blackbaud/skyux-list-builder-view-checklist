@@ -1,6 +1,6 @@
 # 3.1.3 (2019-05-30)
 
-- Fixed the list view checklist component's checkboxes to no longer be pushed against the right-hand side of the checklist. [#32](https://github.com/blackbaud/skyux-list-builder-view-checklist/pull/32)
+- Fixed the list view checklist component to add space between checkboxes and the right-hand side of the checklist. [#32](https://github.com/blackbaud/skyux-list-builder-view-checklist/pull/32)
 
 # 3.1.2 (2019-04-12)
 
