@@ -3,9 +3,11 @@
   "name": "skyux-list-builder-view-checklist",
   "mode": "easy",
   "compileMode": "aot",
-  "skyuxModules": [
-    "SkyErrorModule"
-  ],
+  "app": {
+    "styles": [
+      "@skyux/theme/css/sky.css"
+    ]
+  },
   "plugins": [
     "@skyux-sdk/builder-plugin-skyux"
   ],
