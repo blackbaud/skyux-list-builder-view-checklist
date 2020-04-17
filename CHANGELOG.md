@@ -1,3 +1,13 @@
+# 4.0.0-rc.0 (2020-04-17)
+
+### New features
+
+- Updated the pipeline to transpile to the [Angular Package Format](https://docs.google.com/document/d/1CZC2rcpxffTDfRDs6p1cfbmKNLA6x5O-NtkJglDaBVs/preview). [#43](https://github.com/blackbaud/skyux-list-builder-view-checklist/pull/43)
+
+### Breaking changes
+
+- Dropped support for `rxjs@5`. Consumers may install `rxjs-compat@^6` to support older versions of `rxjs`. [#43](https://github.com/blackbaud/skyux-list-builder-view-checklist/pull/43)
+
 # 3.2.0 (2020-02-12)
 
 - Added support for `@skyux-sdk/builder@3.14.0`. [#39](https://github.com/blackbaud/skyux-list-builder-view-checklist/pull/39)
