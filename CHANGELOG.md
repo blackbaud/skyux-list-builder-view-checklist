@@ -1,6 +1,6 @@
 # 4.0.0-rc.1 (2020-04-20)
 
-- Added `SkyListBuilderViewChecklistComponent` to the exports API (for use by SKY UX components only).
+- Added `SkyListViewChecklistComponent` to the exports API (for use by SKY UX components only).
 
 # 4.0.0-rc.0 (2020-04-17)
 
