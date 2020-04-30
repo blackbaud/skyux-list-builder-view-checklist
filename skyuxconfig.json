@@ -4,9 +4,7 @@
   "mode": "easy",
   "compileMode": "aot",
   "app": {
-    "styles": [
-      "@skyux/theme/css/sky.css"
-    ]
+    "styles": []
   },
   "plugins": [
     "@skyux-sdk/builder-plugin-skyux"
@@ -17,6 +15,11 @@
     },
     "unit": {
       "browserSet": "paranoid"
+    }
+  },
+  "host": {
+    "frameOptions": {
+      "none": true
     }
   }
 }
