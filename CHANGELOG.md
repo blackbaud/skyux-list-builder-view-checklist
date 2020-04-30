@@ -1,3 +1,9 @@
+# 4.0.0-rc.2 (2020-04-30)
+
+### New features
+
+- Added a test fixture for the list view checklist component to be used in consumer unit tests. [#45](https://github.com/blackbaud/skyux-list-builder-view-checklist/pull/45)
+
 # 4.0.0-rc.1 (2020-04-20)
 
 - Added `SkyListViewChecklistComponent` to the exports API (for use by SKY UX components only).
