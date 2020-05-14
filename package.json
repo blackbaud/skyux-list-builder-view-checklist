@@ -1,6 +1,6 @@
 {
   "name": "@skyux/list-builder-view-checklist",
-  "version": "4.0.0-rc.2",
+  "version": "4.0.0",
   "description": "SKY UX List Builder View Checklist",
   "scripts": {
     "build": "skyux build-public-library --fullTemplateTypeCheck",
