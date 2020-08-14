@@ -4,7 +4,9 @@
   "mode": "easy",
   "compileMode": "aot",
   "app": {
-    "styles": []
+    "styles": [
+      "@skyux/docs-tools/css/docs-tools.css"
+    ]
   },
   "plugins": [
     "@skyux-sdk/builder-plugin-skyux"
@@ -30,8 +32,15 @@
     }
   },
   "host": {
+    "url": "https://developer.blackbaud.com",
     "frameOptions": {
       "none": true
+    }
+  },
+  "omnibar": {},
+  "params": {
+    "svcid": {
+      "value": "skyux"
     }
   }
 }
