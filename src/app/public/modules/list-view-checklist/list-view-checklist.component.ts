@@ -98,7 +98,7 @@ export class SkyListViewChecklistComponent extends ListViewComponent implements 
 
   /**
    * Specifies the name of the label field selector.
-   * @default label
+   * @default 'label'
    */
   /* tslint:disable */
   @Input('label')
@@ -107,7 +107,7 @@ export class SkyListViewChecklistComponent extends ListViewComponent implements 
 
   /**
    * Specifies the name of the description field selector.
-   * @default description
+   * @default 'description'
    */
   @Input()
   public description: string = 'description';
@@ -116,7 +116,7 @@ export class SkyListViewChecklistComponent extends ListViewComponent implements 
    * Specifies how many items users can select.
    * `single` allows users to select one item in the checklist, while `multiple`
    * allows users to select multiple items in the checklist.
-   * @default multiple
+   * @default 'multiple'
    */
   @Input()
   public set selectMode(value: string) {
