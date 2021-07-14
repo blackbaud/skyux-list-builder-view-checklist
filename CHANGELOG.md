@@ -1,8 +1,8 @@
 # 5.0.0-beta.0 (2021-07-14)
 
 - Initial beta release.
-- Added support for `@angular/core@^12`. [#100](https://github.com/blackbaud/skyux-list-builder-view-checklist/pull/100)
-- Added support for `5.0.0-beta.*` versions of SKY UX component libraries. [#100](https://github.com/blackbaud/skyux-list-builder-view-checklist/pull/100)
+- Added support for `@angular/core@^12`. [#59](https://github.com/blackbaud/skyux-list-builder-view-checklist/pull/59)
+- Added support for `5.0.0-beta.*` versions of SKY UX component libraries. [#59](https://github.com/blackbaud/skyux-list-builder-view-checklist/pull/59)
 
 # 4.0.1 (2020-08-06)
 
