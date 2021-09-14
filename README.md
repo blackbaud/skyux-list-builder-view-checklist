@@ -1,5 +1,3 @@
-# @skyux/list-builder-view-checklist
+# @skyux/list-builder-view-checklist Workspace
 
-[![npm](https://img.shields.io/npm/v/@skyux/list-builder-view-checklist.svg)](https://www.npmjs.com/package/@skyux/list-builder-view-checklist)
-[![status](https://travis-ci.org/blackbaud/skyux-list-builder-view-checklist.svg?branch=master)](https://travis-ci.org/blackbaud/skyux-list-builder-view-checklist)
-[![coverage](https://codecov.io/gh/blackbaud/skyux-list-builder-view-checklist/branch/master/graphs/badge.svg?branch=master)](https://codecov.io/gh/blackbaud/skyux-list-builder-view-checklist/branch/master)
+For information about `@skyux/list-builder-view-checklist` please visit the library's README file, located at `projects/list-builder-view-checklist/README.md`.
