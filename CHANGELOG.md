@@ -1,3 +1,8 @@
+# 5.0.0-beta.1 (2021-09-14)
+
+- Migrated to Angular CLI. [#61](https://github.com/blackbaud/skyux-list-builder-view-checklist/pull/61)
+- Added support for "partial" Ivy compilation mode. [#61](https://github.com/blackbaud/skyux-list-builder-view-checklist/pull/61)
+
 # 5.0.0-beta.0 (2021-07-14)
 
 - Initial beta release.
