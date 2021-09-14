@@ -10,13 +10,13 @@ import {
 
 describe('list-view-checklist component', () => {
 
-  beforeEach(() => {
-    SkyHostBrowser.get('visual/list-view-checklist');
+  beforeEach(async () => {
+    await SkyHostBrowser.get('visual/list-view-checklist');
   });
 
   describe('(lg screens)', () => {
-    beforeEach(() => {
-      SkyHostBrowser.setWindowBreakpoint('lg');
+    beforeEach(async () => {
+      await SkyHostBrowser.setWindowBreakpoint('lg');
     });
 
     it('should display checklist view', (done) => {
@@ -25,25 +25,25 @@ describe('list-view-checklist component', () => {
       });
     });
 
-    it('should display checklist view with checked', (done) => {
-      element(by.css('.sky-list-view-checklist sky-checkbox')).click();
+    it('should display checklist view with checked', async (done) => {
+      await element(by.css('.sky-list-view-checklist sky-checkbox')).click();
 
       expect('#screenshot-list-view-checklist').toMatchBaselineScreenshot(done, {
         screenshotName: 'list-view-checklist-lg-checked'
       });
     });
 
-    it('should display only checked items when "only show selected items" is checked', (done) => {
-      element(by.css('.sky-list-view-checklist sky-checkbox')).click();
-      element(by.css('.sky-list-multiselect-toolbar sky-checkbox')).click();
+    it('should display only checked items when "only show selected items" is checked', async (done) => {
+      await element(by.css('.sky-list-view-checklist sky-checkbox')).click();
+      await element(by.css('.sky-list-multiselect-toolbar sky-checkbox')).click();
 
       expect('#screenshot-list-view-checklist').toMatchBaselineScreenshot(done, {
         screenshotName: 'list-view-checklist-lg-show-only-selected'
       });
     });
 
-    it('should display checklist view single select', (done) => {
-      element(by.css('.sky-btn.sky-btn-primary')).click();
+    it('should display checklist view single select', async (done) => {
+      await element(by.css('.sky-btn.sky-btn-primary')).click();
 
       expect('#screenshot-list-view-checklist').toMatchBaselineScreenshot(done, {
         screenshotName: 'list-view-checklist-lg-single-select'
@@ -52,8 +52,8 @@ describe('list-view-checklist component', () => {
   });
 
   describe('(xs screens)', () => {
-    beforeEach(() => {
-      SkyHostBrowser.setWindowBreakpoint('xs');
+    beforeEach(async () => {
+      await SkyHostBrowser.setWindowBreakpoint('xs');
     });
 
     it('should display checklist view', (done) => {

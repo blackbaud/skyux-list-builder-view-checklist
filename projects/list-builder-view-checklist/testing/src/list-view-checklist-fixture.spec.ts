@@ -27,6 +27,7 @@ import {
 import {
   SkyListViewChecklistFixture
 } from './list-view-checklist-fixture';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 const testItems = [
   { id: '1', column1: 101, column2: 'Apple', column3: 'Anne eats apples'},
@@ -87,6 +88,7 @@ describe('List view checklist fixture', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
+        NoopAnimationsModule,
         TestComponent
       ],
       imports: [
