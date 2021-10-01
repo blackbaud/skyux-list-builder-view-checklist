@@ -88,10 +88,10 @@ describe('List view checklist fixture', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
-        NoopAnimationsModule,
         TestComponent
       ],
       imports: [
+        NoopAnimationsModule,
         SkyListModule,
         SkyListToolbarModule,
         SkyListViewChecklistModule
