@@ -5,17 +5,17 @@ import { VisualComponent } from './visual/visual.component';
 
 const routes: Routes = [
   {
-  path: '',
-  component: VisualComponent
+    path: '',
+    component: VisualComponent,
   },
   {
-  path: 'visual/list-view-checklist',
-  component: ListViewChecklistVisualComponent
-  }
+    path: 'visual/list-view-checklist',
+    component: ListViewChecklistVisualComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

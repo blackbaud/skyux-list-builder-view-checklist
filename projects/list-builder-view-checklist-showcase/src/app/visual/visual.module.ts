@@ -6,19 +6,14 @@ import { RouterModule } from '@angular/router';
 import { SkyListModule, SkyListToolbarModule } from '@skyux/list-builder';
 import { ListViewChecklistVisualComponent } from './list-view-checklist/list-view-checklist-visual.component';
 
-
-
 @NgModule({
-  declarations: [
-    VisualComponent,
-    ListViewChecklistVisualComponent
-  ],
+  declarations: [VisualComponent, ListViewChecklistVisualComponent],
   imports: [
     CommonModule,
     RouterModule,
     SkyListViewChecklistModule,
     SkyListModule,
-    SkyListToolbarModule
-  ]
+    SkyListToolbarModule,
+  ],
 })
-export class VisualModule { }
+export class VisualModule {}
