@@ -1,3 +1,7 @@
+# 5.0.1 (2021-11-19)
+
+- Added support for Prettier code formatting and updated the builder to support StackBlitz. []()
+
 # 5.0.0 (2021-10-01)
 
 ### New features
@@ -111,4 +115,3 @@
 # 3.0.0-alpha.0 (2018-10-10)
 
 - Initial alpha release.
-
